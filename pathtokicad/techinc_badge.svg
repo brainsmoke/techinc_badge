@@ -147,11 +147,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="4"
-     inkscape:cx="84.352804"
-     inkscape:cy="994.57586"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="0.052768201"
+     inkscape:cy="1052.1979"
      inkscape:document-units="px"
-     inkscape:current-layer="layer7"
+     inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1364"
      inkscape:window-height="750"
@@ -174,15 +174,11 @@
      inkscape:label="back"
      inkscape:groupmode="layer"
      id="layer1"
-     style="display:inline"
-     sodipodi:insensitive="true">
-    <rect
-       y="-88.582703"
-       x="-150.59056"
-       height="177.16536"
-       width="301.18109"
-       id="rect3794"
-       style="fill:#000000;fill-opacity:1;stroke:none" />
+     style="display:inline">
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       d="m -141.71556,-88.582703 283.43109,0 c 4.91675,0 8.875,3.95825 8.875,8.875 l 0,159.41536 c 0,4.91675 -3.95825,8.875 -8.875,8.875 l -283.43109,0 c -4.91675,0 -8.875,-3.95825 -8.875,-8.875 l 0,-159.41536 c 0,-4.91675 3.95825,-8.875 8.875,-8.875 z"
+       id="rect3794" />
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DicotLight;-inkscape-font-specification:DicotLight Bold"

@@ -19,7 +19,8 @@ fill_paths = [
 
 segment_paths = [
 	("21", "silkscreen.segments", .9),
-	("28", "edges.segments", .9),
+	("28", "edges_round.segments", .9),
+#	("28", "edges.segments", .9),
 	("20", "techincnl.segments", .9),
 ]
 
@@ -101,6 +102,27 @@ def output_cubic( guide1, guide2, end ):
 		abc = interpolate(ab, bc, d)
 		v += output_line(abc)
 	return v
+
+
+def output_line_segment( coords, layer ):
+	print "DS %s %s %d %s" % (coord_fmt(cur), coord_fmt(coords),width*scale,layer)
+	set_cur(coords)
+
+def output_cubic_segment( guide1, guide2, end, layer ):
+	start = cur
+	n = min(int(dist(start, end)*scale/40.)+1, cubic_sections)
+
+	for i in xrange(1, n+1):
+		d = i/float(n)
+		a = interpolate(start, guide1, d)
+		b = interpolate(guide1, guide2, d)
+		c = interpolate(guide2, end, d)
+
+		ab = interpolate(a, b, d)
+		bc = interpolate(b, c, d)
+		abc = interpolate(ab, bc, d)
+		output_line_segment(abc, layer)
+
 
 def output_rel_cubic( guide1, guide2, end ):
 	return output_cubic( get_abs(guide1), get_abs(guide2), get_abs(end) )
@@ -234,6 +256,16 @@ def print_segments(data, layer, width):
 			pos = get_coords((x, values.next()))
 			print "DS %s %s %d %s" % (coord_fmt(cur), coord_fmt(pos),width*scale,layer)
 			set_cur(pos)
+		elif mode == 'c':
+			guide1 = x, values.next()
+			guide2 = values.next(), values.next()
+			end = values.next(), values.next()
+			output_cubic_segment(get_abs(get_coords(guide1)), get_abs(get_coords(guide2)), get_abs(get_coords(end)),layer)
+		elif mode == 'C':
+			guide1 = x, values.next()
+			guide2 = values.next(), values.next()
+			end = values.next(), values.next()
+			output_cubic_segment(get_coords(guide1), get_coords(guide2), get_coords(end),layer)
 		else:
 			print "ERROR: " + x
 			sys.exit(1)
